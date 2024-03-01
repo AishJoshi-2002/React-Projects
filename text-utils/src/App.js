@@ -1,6 +1,7 @@
 import './App.css';
 import Navbar from './components/Navbar'
 import TextForm from './components/TextForm'
+import About from './components/About';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
       <div className='container my-3'>
         <TextForm boxHeading="Enter the text to analyze" boxPlaceholder="Enter text here..." upperCase="Convert to Uppercase" lowerCase="Convert to Lowercase" copy="Copy to Clipboard" clear="Clear"/>
       </div>
-
+      <About title="About"/>
     </>
   );
 }
