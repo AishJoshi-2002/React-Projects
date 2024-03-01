@@ -9,12 +9,15 @@ export default function About(p) {
                 <ol>
                     <li>Navbar component: The component includes the title of the app, Home and About tabs. It also contains a toggle for enabling light and dark mode.</li>
                     <li>TextForm component: The component is responsible for showing the textarea, buttons and text summary.
+                        <br/>
+                        User can perform the following operations.
                         <ul>
                             <li>Convert To UpperCase: updates the task in the user table</li>
                             <li>Convert to LowerCase: Converts the text to Lowercase, uses toLowerCase() function</li>
                             <li>Copy to Clipboard: Copies the text to the clipboard, uses navigator.clipboard.writeText</li>
                             <li>Clear: Clears the textarea, by setting the text as ''</li>
                         </ul>
+                        The text summary gives the count of number of words, characters and preview.
                     </li>
                     <li>About component: The component provides an overview about the app and the React basics used.</li>
                 </ol>
