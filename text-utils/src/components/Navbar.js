@@ -1,9 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 
 export default function Navbar(props) {
+  // data-bs-theme="light"
+  // data-bs-theme="dark"
+  const [isLight, setIsLight] = useState(true)
+  const handleOnToggle = ()=>{
+    setIsLight(!isLight)
+  }
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary nav-color" data-bs-theme={isLight ? "light" : "dark"}>
       <div className="container-fluid">
         <a className="navbar-brand" href="/">{props.title}</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,9 +25,12 @@ export default function Navbar(props) {
             </li>
           </ul>
         </div>
+        <div className="form-check form-switch">
+          <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onClick={handleOnToggle} />
+        </div>
       </div>
     </nav>
   )
 }
 
-Navbar.propTypes = { title: PropTypes.string, homeText: PropTypes.string, aboutText: PropTypes.string}
+Navbar.propTypes = { title: PropTypes.string, homeText: PropTypes.string, aboutText: PropTypes.string }

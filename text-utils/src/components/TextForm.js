@@ -1,23 +1,26 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 export default function TextForm(props) {
     const [text, setText] = useState("")
     const [isCopied, setIsCopied] = useState(false)
-    const handleUcClick = ()=>{
+    const handleUcClick = () => {
         setText(text.toUpperCase())
     }
-    const handleLcClick = ()=>{
+    const handleLcClick = () => {
         setText(text.toLowerCase())
     }
-    const handleCoClick = ()=>{
+    const handleCoClick = () => {
         navigator.clipboard.writeText(text)
         setIsCopied(true)
     }
-    const handleClClick = ()=>{
+    const handleClClick = () => {
         setText('')
     }
-    const handleOnChange = (event)=>{
+    const handleExtraSpace = () => {
+        setText(text.split(/[ ]+/).join(" "))
+    }
+    const handleOnChange = (event) => {
         setText(event.target.value)
         setIsCopied(false)
     }
@@ -30,8 +33,9 @@ export default function TextForm(props) {
                 </div>
                 <button className='btn btn-primary mx-2' onClick={handleUcClick}>{props.upperCase}</button>
                 <button className='btn btn-primary' onClick={handleLcClick}>{props.lowerCase}</button>
-                <button className={isCopied ? 'btn btn-success mx-2' : 'btn btn-primary mx-2'} onClick={handleCoClick}>{props.copy}</button>
-                <button className='btn btn-primary' onClick={handleClClick}>{props.clear}</button>
+                <button className='btn btn-primary mx-2' onClick={handleExtraSpace}>{props.extraSpace}</button>
+                <button className={isCopied ? 'btn btn-success' : 'btn btn-primary'} onClick={handleCoClick}>{props.copy}</button>
+                <button className='btn btn-primary mx-2' onClick={handleClClick}>{props.clear}</button>
             </div>
             <div className='container my-4'>
                 <h2>Your text summary</h2>
@@ -45,4 +49,4 @@ export default function TextForm(props) {
     );
 }
 
-TextForm.propTypes = { boxHeading: PropTypes.string, boxPlaceholder: PropTypes.string, upperCase: PropTypes.string, lowerCase: PropTypes.string }
+TextForm.propTypes = { boxHeading: PropTypes.string, boxPlaceholder: PropTypes.string, upperCase: PropTypes.string, lowerCase: PropTypes.string, extraSpace: PropTypes.string, copy: PropTypes.string, clear: PropTypes.string }

@@ -8,7 +8,7 @@ function App() {
     <>
       <Navbar title="TextUtils" homeText="Home" aboutText="About" />
       <div className='container my-3'>
-        <TextForm boxHeading="Enter the text to analyze" boxPlaceholder="Enter text here..." upperCase="Convert to Uppercase" lowerCase="Convert to Lowercase" copy="Copy to Clipboard" clear="Clear"/>
+        <TextForm boxHeading="Enter the text to analyze" boxPlaceholder="Enter text here..." upperCase="Convert to Uppercase" lowerCase="Convert to Lowercase" extraSpace="Remove Extra Spaces" copy="Copy to Clipboard" clear="Clear"/>
       </div>
       <About title="About"/>
     </>
