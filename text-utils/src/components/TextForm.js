@@ -26,7 +26,7 @@ export default function TextForm(props) {
     }
     const handleWordCount = () => {
         let wordCount = 0
-        for (let ele of text.split(' ')) {
+        for (let ele of text.split(/\s+/)) {
             if (ele !== '') {
                 wordCount++;
             }
@@ -50,7 +50,7 @@ export default function TextForm(props) {
                 <h2>Your text summary</h2>
                 <p>Words: {text.length > 0 ? handleWordCount() : 0}</p>
                 <p>Characters: {text.length}</p>
-                <p>Minutes to read: {0.008 * text.split(' ').length}</p>
+                <p>Minutes to read: {0.008 * text.split(/\s+/).length}</p>
                 <h4>Preview</h4>
                 <p>{text.length > 0 ? text : "Enter text to preview here"}</p>
             </div>

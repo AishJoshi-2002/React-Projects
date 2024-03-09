@@ -41,7 +41,7 @@ function App() {
         <Route path="/" element={<div className='container my-3'>
           <TextForm boxHeading="Enter the text to analyze" boxPlaceholder="Enter text here..." upperCase="Convert to Uppercase" lowerCase="Convert to Lowercase" extraSpace="Remove Extra Spaces" copy="Copy to Clipboard" clear="Clear" />
         </div>} />
-        <Route path="/about" element={<About title="About" />} />
+        <Route exact path="/about" element={<About title="About" />} />
       </Routes>
     </BrowserRouter>
   );
