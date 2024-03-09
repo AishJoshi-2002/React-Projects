@@ -74,3 +74,13 @@ https://reactjsexample.com/a-text-utils-app-nade-using-react-js/
 
 
 https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/text_align_center.png
+
+
+## Links used
+
+### React
+https://www.youtube.com/playlist?list=PLu0W_9lII9agx66oZnT6IyhcMIbUMNMdt
+
+### React Router DOM
+https://www.youtube.com/playlist?list=PLwGdqUZWnOp1bMwGTJVaQmdwbmX61iceM
+BrowserRouter: to connect the app with browser's url
