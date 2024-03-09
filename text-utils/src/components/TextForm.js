@@ -24,6 +24,15 @@ export default function TextForm(props) {
         setText(event.target.value)
         setIsCopied(false)
     }
+    const handleWordCount = () => {
+        let wordCount = 0
+        for (let ele of text.split(' ')) {
+            if (ele !== '') {
+                wordCount++;
+            }
+        }
+        return wordCount
+    }
     return (
         <>
             <div className='container'>
@@ -39,7 +48,7 @@ export default function TextForm(props) {
             </div>
             <div className='container my-4'>
                 <h2>Your text summary</h2>
-                <p>Words: {text.split(' ').length}</p>
+                <p>Words: {text.length > 0 ? handleWordCount() : 0}</p>
                 <p>Characters: {text.length}</p>
                 <p>Minutes to read: {0.008 * text.split(' ').length}</p>
                 <h4>Preview</h4>
