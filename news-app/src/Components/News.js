@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NewsItem from './NewsItem';
 
 export class News extends Component {
+    // constructor -> render -> componentDidMount
     articles = [
         {
             "source": {
@@ -72,6 +73,13 @@ export class News extends Component {
             return false
         }
     }
+    async componentDidMount() {
+        let url = "https://newsapi.org/v2/everything?q=tesla&from=2024-02-12&sortBy=publishedAt&apiKey=e054d88b09de49dfadf6cbb000f40d8c"
+        let data = await fetch(url)
+        let parsedData = await data.json()
+        console.log(parsedData)
+        this.setState({articles: parsedData.articles})
+    }
     render() {
         return (
             <div className='container my-3'>
@@ -81,7 +89,7 @@ export class News extends Component {
                 {this.state.articles.map((element) => {
                     // a unique key should be present when using map
                     return <div className='col-md-4' key={element.url}>
-                    <NewsItem title={element.title.slice(0, 45)} description={element.description.slice(0, 88)} imageUrl={element.
+                    <NewsItem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 88) : ""} imageUrl={element.
 urlToImage} newsURL={element.url} titleLen={this.checklength("title", element.title)} desLen={this.checklength("description", element.description)}/>
                 </div>
                 })}
