@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NewsItem from './NewsItem';
+import Spinner from './Spinner';
 
 export class News extends Component {
     // constructor -> render -> componentDidMount
@@ -22,7 +23,7 @@ export class News extends Component {
         super()
         this.state = {
             articles: [],
-            loading: false,
+            loading: true,
             page: 1
         }
     }
@@ -49,18 +50,50 @@ export class News extends Component {
     //     })
     // }
     async componentDidMount() {
-        let url = "https://newsapi.org/v2/everything?q=tesla&from=2024-02-14&sortBy=publishedAt&apiKey=e054d88b09de49dfadf6cbb000f40d8c"
+        let url = `https://newsapi.org/v2/everything?q=tesla&from=2024-02-15&sortBy=publishedAt&apiKey=e054d88b09de49dfadf6cbb000f40d8c&pageSize=${this.props.pageSize}`
         let data = await fetch(url)
         let parsedData = await data.json()
-        console.log(parsedData)
-        this.setState({ articles: parsedData.articles })
+        // console.log(parsedData)
+        this.setState({
+            articles: parsedData.articles,
+            totalResults: parsedData.totalResults,
+            loading: false
+        })
+    }
+    handlePrevClick = async () => {
+        this.setState({
+            loading: true
+        })
+        let url = `https://newsapi.org/v2/everything?q=tesla&from=2024-02-15&sortBy=publishedAt&apiKey=e054d88b09de49dfadf6cbb000f40d8c&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`
+        let data = await fetch(url)
+        let parsedData = await data.json()
+        this.setState({
+            articles: parsedData.articles,
+            page: this.state.page - 1,
+            loading: false
+        })
+    }
+    handleNextClick = async () => {
+        this.setState({
+            loading: true
+        })
+        if (this.state.page + 1 < Math.ceil(this.state.totalResults / this.props.pageSize)) {
+            let url = `https://newsapi.org/v2/everything?q=tesla&from=2024-02-15&sortBy=publishedAt&apiKey=e054d88b09de49dfadf6cbb000f40d8c&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`
+            let data = await fetch(url)
+            let parsedData = await data.json()
+            this.setState({
+                articles: parsedData.articles,
+                page: this.state.page + 1,
+                loading: false
+            })
+        }
     }
     render() {
         return (
             <div className='container my-3'>
-                <h2>NewsApp - Top Headlines</h2>
-
-                <div className='row'>
+                <h2 className='text-center'>NewsApp - Top Headlines</h2>
+                {this.state.loading && <Spinner />}
+                {!this.state.loading && <div className='row'>
                     {this.state.articles.map((element) => {
                         // a unique key should be present when using map
                         return <div className='col-md-4' key={element.url}>
@@ -69,7 +102,11 @@ export class News extends Component {
                     })}
 
                 </div>
-
+                }
+                <div className='container d-flex justify-content-between'>
+                    <button disabled={this.state.page <= 1} type="button" className="btn btn-info mx-2" onClick={this.handlePrevClick}>&larr; Previous</button>
+                    <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)} type="button" className="btn btn-info" onClick={this.handleNextClick}>Next &rarr;</button>
+                </div>
             </div>
         )
     }
