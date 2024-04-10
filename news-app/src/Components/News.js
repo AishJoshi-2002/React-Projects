@@ -108,12 +108,14 @@ export class News extends Component {
                     {this.state.articles && this.state.articles.map((element) => {
                         // a unique key should be present when using map
                         return <div className='col-md-4' key={element.url}>
-                            <NewsItem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 88) : ""} imageUrl={element.urlToImage} newsURL={element.url} titleLen={this.checklength("title", element.title ? element.title : "")} desLen={this.checklength("description", element.description ? element.description : "")} />
+                            <NewsItem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 88) : ""} imageUrl={element.urlToImage} newsURL={element.url} titleLen={this.checklength("title", element.title ? element.title : "")} desLen={this.checklength("description", element.description ? element.description : "")} author={element.author} publishedAt={element.publishedAt} source={element.source} />
                         </div>
                     })}
-
                 </div>
                 }
+                {!this.state.loading && (this.state.page <= 1) && (this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)) && <h3 className='text-center' style={{margin: "20px"}}>
+                    No Data available
+                    </h3>}
                 <div className='container d-flex justify-content-between'>
                     <button disabled={this.state.page <= 1} type="button" className="btn btn-info mx-2" onClick={this.handlePrevClick}>&larr; Previous</button>
                     <button disabled={this.state.page + 1 > Math.ceil(this.state.totalResults / this.props.pageSize)} type="button" className="btn btn-info" onClick={this.handleNextClick}>Next &rarr;</button>
