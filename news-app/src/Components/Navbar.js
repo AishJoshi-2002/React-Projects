@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import PropType from 'prop-types';
 import { Link } from 'react-router-dom';
 
 export class Navbar extends Component {
     render() {
         return (
-            <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#E86252 !important" }} >
+            <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#E9615F" }} >
                 <div className="container-fluid" style={{backgroundColor: "#E86252 !imporatnt"}}>
                     <Link className="navbar-brand" to="/" style={{fontSize: "x-large", fontWeight: "500", paddingRight: '32px', borderRight: '2px solid #000'}}>NewsApp</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
