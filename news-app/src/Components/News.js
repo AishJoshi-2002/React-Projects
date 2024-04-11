@@ -120,7 +120,7 @@ export class News extends Component {
             articles: this.state.articles.concat(parsedData.articles),
             totalResults: parsedData.totalResults,
             // page: this.state.page,
-            loading: false
+            // loading: false
         })
     }
 
@@ -128,13 +128,13 @@ export class News extends Component {
         return (
             <div className='container my-3'>
                 <h2 className='text-center'>NewsApp - Top Headlines</h2>
-                {/* {this.state.loading && <Spinner />} */}
+                {this.state.loading && <Spinner />}
                 <InfiniteScroll
                     dataLength={this.state.articles.length}
                     next={this.fetchMoreData}
                     hasMore={this.state.articles.length !== this.state.totalResults}
                     loader={<Spinner />}
-                    >
+                >
                     <div className='container'>
                         <div className='row'>
                             {this.state.articles && this.state.articles.map((element) => {
