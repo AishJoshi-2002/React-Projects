@@ -33,3 +33,6 @@ The News component is passed as a JSX element to the element prop. */}
 
 // component not remounting
 // unique key prop
+
+// state cannot be modified in render method
+
