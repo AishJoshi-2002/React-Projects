@@ -19,5 +19,3 @@ const Books = () => {
 }
 
 export default Books;
-
-// to load react components lazily throgh code spliting without any help of external libraries.

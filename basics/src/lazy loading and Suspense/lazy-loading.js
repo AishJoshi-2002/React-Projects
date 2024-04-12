@@ -1,12 +1,17 @@
-import React, { lazy } from 'react';
-import Books from './books';
+import React, { lazy, Suspense } from 'react';
+// import Books from './books';
 
-// const Books = lazy ()
+const Books = lazy(() => import ('./books'))
 
 function LazyLoading() {
     return (
         <div>
-            <Books/>
+            <h2>Book details:</h2>
+            <div style={{align: "center"}}>
+            <Suspense fallback={<p>Loading...</p>}>
+                <Books/>
+            </Suspense>
+            </div>
         </div>
     )
 }
