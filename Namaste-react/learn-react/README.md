@@ -68,3 +68,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# ______________________________________________
+
+## CDN (Content Delivery Network)
+Distributed networks of servers strategically placed around the world to deliver web content efficiently.
+
+## crossorigin
+Crossorigin attribute is used when a script on one domain is trying to fetch or interact with resources from another domain.
