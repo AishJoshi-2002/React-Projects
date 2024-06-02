@@ -4,18 +4,17 @@ body, html {
 }
 
 .header {
-  background: #9acd32;
+  /* background: #9acd32; */
   flex-direction: row;
   align-items: center;
   display: flex;
   justify-content: space-between;
-  /* border: 1px solid black; */
   height: 100px;
 }
 
 .logo-img {
-  width: 142px;
-  height: 74px;
+  width: 118px;
+  height: 116px;
 }
 
 .nav-items > ul {
@@ -29,9 +28,60 @@ body, html {
   padding-right: 44px;
 }
 
+.icons {
+  height: 20px;
+  position: relative;
+  top: 3px;
+  right: 4px;
+}
+
+.search {
+  display: ruby-text;
+  margin-bottom: 15px;
+}
+
+.search > input {
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 60%;
+}
+
 .restaurant-card {
-  border: 1px solid black;
-  width: 200px;
-  height: 280px;
+  width: 18.5rem;
+  height: 20rem;
   margin-left: 15px;
+}
+
+.res-img {
+  width: 100%;
+  height: 64%;
+  border-radius: 20px;
+}
+
+.card-content {
+  margin-left: 16px;
+  line-height: 5px;
+  font-family: sans-serif;
+  font-weight: 300;
+}
+
+.res-heading {
+  font-weight: 600;
+}
+
+.card-sub-content {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.rating-icon {
+  height: 16px;
+  margin-right: 4px;
+}
+
+.body-div {
+  background: snow;;
 }
