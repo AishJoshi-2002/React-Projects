@@ -2,18 +2,18 @@ import React from "react";
 import ratingIcon from '../images/rating_icon.png';
 import '../App.css';
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
     return (
         <div className="restaurant-card">
-            <img alt="Pizza Hut" className="res-img" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/2b4f62d606d1b2bfba9ba9e5386fabb7" />
+            <img alt="Pizza Hut" className="res-img" src={props.resImg} />
             <div className="card-content">
-                <p className="res-heading">Pizza Hut</p>
+                <p className="res-heading">{props.resName}</p>
                 <div className="card-sub-content">
                     <img alt="ratingIcon" src={ratingIcon} className="rating-icon" />
-                    <span className="rating">4.1  •  40-45 mins</span>
+                    <span className="rating">{props.resRating}  •  {props.resTime}</span>
                 </div>
-                <p>Quisine</p>
-                <p>Address</p>
+                <p>{props.resCuisine}</p>
+                <p>{props.resAddress}</p>
             </div>
         </div>
     )

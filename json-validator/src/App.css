@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden; /* Prevent scrollbars */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* NAVBAR */
+
+.navbar {
+  height: 57px;
+  background: beige;
+  display: flex;
+  justify-content: space-between;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.navbar-heading {
+  margin: 16px 21px;
+  font-size: x-large;
+}
+
+.open-files-btn {
+  border: 0;
+  background: aliceblue;
+  height: 35px;
+  margin: 12px 21px;
+  padding: 0px 12px;
+}
+
+.open-files-btn:hover {
+  filter: brightness(0.97);
+}
+
+
+/* TEXTAREA */
+
+.after-nav {
+  flex-grow: 1; /* Take up remaining space */
+  overflow: auto; /* Allow content to scroll within this div if needed */
+  padding: 20px; /* Optional padding */
+}
+
+.text-area {
+  display: flex;
+  border: 1px solid black;
+  height: 83vh;
+}
+
+.text-area-count {
+  width: 40px;
+  background: #f0f0f0;
+}
+
+.text-area-box {
+  width: 100%;
+  height: 100%;
+  resize: none; /* Prevent textarea from being resized */
+  border: 0px;
+  border-left: 1px solid black;
+}
+
+.text-area-box:focus {
+  outline: none; /* or outline: transparent; */
+}
+
+.funct-btn {
+  margin-top: 15px;
+}
+
+.text-func-btns {
+  margin-right: 14px;
+  height: 30px;
+  width: 110px;
+  border: 0;
+  background: beige;
+}
+
+.text-func-btns:hover {
+  filter: brightness(0.97);
+}
+
+
