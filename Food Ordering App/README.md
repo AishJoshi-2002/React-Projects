@@ -27,5 +27,9 @@ page loads -> api call -> render the UI
 approach 2 (REACT: gives a better UX)
 page loads -> render the UI -> api call -> re-render the application
 
+# Types of Routing in web apps
+ - Client Side Routing (Client Side routing, only refreshes the components.)
+ - Server Side Routing (Reloads the whole page, makes a network call.)
 
 <!-- load on-scroll -->
+<!-- <error handling for net> -->
