@@ -92,3 +92,16 @@ body {
 }
 
 
+.validation-result {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.validation-result.valid {
+  color: #28a745;
+}
+
+.validation-result.invalid {
+  color: #dc3545;
+}

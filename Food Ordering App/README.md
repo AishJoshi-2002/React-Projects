@@ -1,78 +1,31 @@
-# Getting Started with Create React App
+## React does efficient DOM manipulations
+React.element => object
+Virtual DOM => object (js reprsentation of html code)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Reconciliation Algorith ( React Fiber) REACT16
+1 res-container (7 res cards)  =>  (3 res cards)
+Actual DOM (<div> <div> <div></div> </div> </div>)
+Virtual DOM (representation of actual DOM)
 
-## Available Scripts
+# Diff algo
+The second func in useState triggers the diff algo.
+finds the diff between updated and prev virtual DOM, then update.
 
-In the project directory, you can run:
+Monolithic Architecture
+everything at one project (API, UI, Authentication, DB, SMS)
 
-### `npm start`
+Microservices (different service for diff roles)
+BE, UI, Auth, DB, SMS, Email
+seperation of concerns
+own specific ports
+mapped to a domain then deplyed to same url
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+approach 1
+page loads -> api call -> render the UI
 
-### `npm test`
+approach 2 (REACT: gives a better UX)
+page loads -> render the UI -> api call -> re-render the application
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# ______________________________________________
-
-## CDN (Content Delivery Network)
-Distributed networks of servers strategically placed around the world to deliver web content efficiently.
-
-## crossorigin
-Crossorigin attribute is used when a script on one domain is trying to fetch or interact with resources from another domain.
+<!-- load on-scroll -->

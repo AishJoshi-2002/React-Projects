@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import foodLogo from '../images/food_img1.png';
 import searchIcon from '../images/search_icon.png';
 import offerIcon from '../images/offer_icon.png';
@@ -7,6 +7,8 @@ import cartIcon from '../images/cart_icon.png';
 import '../App.css';
 
 const Header = () => {
+    const [btnName, setBtnName] = useState('LogIn');
+
     return (
         <div className="header">
             <div className="logo">
@@ -30,6 +32,13 @@ const Header = () => {
                         <img alt="cartIcon" src={cartIcon} className="icons"/>
                         Cart
                     </li>
+                    <button onClick={() => {
+                        if (btnName === 'LogIn') {
+                            setBtnName('LogOut');
+                        } else {
+                            setBtnName('LogIn');
+                        }
+                    }}>{btnName}</button>
                 </ul>
             </div>
         </div>
