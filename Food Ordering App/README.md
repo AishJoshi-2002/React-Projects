@@ -33,3 +33,6 @@ page loads -> render the UI -> api call -> re-render the application
 
 <!-- load on-scroll -->
 <!-- <error handling for net> -->
+
+# Class-based components
+older way of creating components.

@@ -185,3 +185,9 @@ ul {
 ul li {
   margin: 5px 0;
 }
+
+/* User component */
+.user-card {
+  padding: 10px;
+  border: 1px solid black;
+}
